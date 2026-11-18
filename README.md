@@ -23,7 +23,7 @@ A small Java web application for taking multiple-choice exams and seeing an auto
    mvn spring-boot:run
    ```
 
-3. Open [http://localhost:8080](http://localhost:8080), choose an exam, select an answer for each question, and submit to view your score and answer review.
+3. Open [http://localhost:8081](http://localhost:8081), choose an exam, select an answer for each question, and submit to view your score and answer review.
 4. Stop the application with `Ctrl+C`.
 
 ## Build and test
@@ -45,6 +45,8 @@ Run the generated artifact:
 ```bash
 java -jar target/online-examination-1.0.0.jar
 ```
+
+The application listens on port `8081` by default.
 
 ## Project layout
 
