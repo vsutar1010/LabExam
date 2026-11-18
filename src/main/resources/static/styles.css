@@ -1,0 +1,187 @@
+:root {
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f4f6fb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(760px, calc(100% - 32px));
+    margin: 48px auto;
+}
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #5366d6;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.page-header > p:last-child,
+.card > p {
+    color: #637087;
+}
+
+.exam-list,
+.review-list {
+    display: grid;
+    gap: 16px;
+}
+
+.card {
+    margin: 0 0 16px;
+    padding: 24px;
+    border: 1px solid #e4e8f0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgb(23 32 51 / 4%);
+}
+
+.card h2,
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.button {
+    display: inline-block;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: #5366d6;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #4052bd;
+}
+
+.secondary {
+    margin-top: 24px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #5366d6;
+    text-decoration: none;
+}
+
+.question {
+    padding: 20px 24px;
+}
+
+.question legend {
+    width: 100%;
+    padding: 0;
+    font-size: 1.08rem;
+    font-weight: 700;
+}
+
+.question-number {
+    display: inline-grid;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    place-items: center;
+    border-radius: 50%;
+    background: #eef0ff;
+    color: #5366d6;
+    font-size: 0.9rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 0 36px;
+    color: #46536a;
+    cursor: pointer;
+}
+
+.option input {
+    accent-color: #5366d6;
+}
+
+.score-card {
+    padding: 28px;
+    border-radius: 14px;
+    background: #eef0ff;
+    text-align: center;
+}
+
+.score-card .score {
+    margin: 12px 0 0;
+    color: #4052bd;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.score-card > p:last-child {
+    margin-bottom: 0;
+}
+
+.review-item h3 {
+    font-size: 1rem;
+}
+
+.answer,
+.answer-key {
+    margin-bottom: 4px;
+}
+
+.correct {
+    color: #16794b;
+}
+
+.incorrect {
+    color: #b42332;
+}
+
+.answer-key {
+    color: #16794b;
+}
+
+@media (max-width: 520px) {
+    .container {
+        margin: 28px auto;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .option {
+        margin-left: 0;
+    }
+}

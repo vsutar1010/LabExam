@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Examination</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main class="container">
+    <header class="page-header">
+        <p class="eyebrow">ONLINE EXAMINATION</p>
+        <h1>Choose an exam</h1>
+        <p>Select a quiz to begin. Your score will appear as soon as you submit.</p>
+    </header>
+
+    <section class="exam-list" aria-label="Available exams">
+        <article class="card" th:each="exam : ${exams}">
+            <h2 th:text="${exam.title}">Exam title</h2>
+            <p th:text="${exam.description}">Exam description</p>
+            <a class="button" th:href="@{/exams/{id}(id=${exam.id})}">Start exam</a>
+        </article>
+        <p class="card" th:if="${#lists.isEmpty(exams)}">No exams are available.</p>
+    </section>
+</main>
+</body>
+</html>

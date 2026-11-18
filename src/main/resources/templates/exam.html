@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${exam.title} + ' | Online Examination'">Exam</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main class="container">
+    <a class="back-link" th:href="@{/}">&larr; All exams</a>
+    <header class="page-header">
+        <p class="eyebrow">[[${exam.questions.size()}]] QUESTIONS</p>
+        <h1 th:text="${exam.title}">Exam title</h1>
+        <p th:text="${exam.description}">Exam description</p>
+    </header>
+
+    <form th:action="@{/exams/{id}/submit(id=${exam.id})}" method="post">
+        <fieldset class="question card" th:each="question, questionStat : ${exam.questions}">
+            <legend>
+                <span class="question-number" th:text="${questionStat.count}">1</span>
+                <span th:text="${question.text}">Question text</span>
+            </legend>
+            <label class="option" th:each="option, optionStat : ${question.options}">
+                <input type="radio" th:name="${'q' + question.id}" th:value="${optionStat.index}">
+                <span th:text="${option}">Option</span>
+            </label>
+        </fieldset>
+        <button class="button" type="submit">Submit answers</button>
+    </form>
+</main>
+</body>
+</html>

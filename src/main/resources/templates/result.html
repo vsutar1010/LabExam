@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exam result | Online Examination</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<main class="container">
+    <a class="back-link" th:href="@{/}">&larr; All exams</a>
+    <header class="page-header score-card">
+        <p class="eyebrow">EXAM COMPLETE</p>
+        <h1 th:text="${result.exam.title}">Exam title</h1>
+        <p class="score">
+            <span th:text="${result.score}">0</span> /
+            <span th:text="${result.total}">0</span>
+        </p>
+        <p>Correct answers</p>
+    </header>
+
+    <h2>Answer review</h2>
+    <section class="review-list">
+        <article class="card review-item" th:each="answer, answerStat : ${result.answers}">
+            <h3>
+                <span th:text="${answerStat.count}">1</span>.
+                <span th:text="${answer.question}">Question</span>
+            </h3>
+            <p th:class="${answer.correct} ? 'answer correct' : 'answer incorrect'">
+                Your answer: <span th:text="${answer.selectedAnswer}">Answer</span>
+                <span th:text="${answer.correct} ? '✓' : '✗'"></span>
+            </p>
+            <p class="answer-key" th:unless="${answer.correct}">
+                Correct answer: <span th:text="${answer.correctAnswer}">Answer</span>
+            </p>
+        </article>
+    </section>
+    <a class="button secondary" th:href="@{/}">Try another exam</a>
+</main>
+</body>
+</html>
